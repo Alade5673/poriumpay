@@ -88,8 +88,8 @@ function Electricity() {
 				</div>
 			</div>
 
-			<div className="relative w-11/12 md:w-8/12 lg:w-5/12 my-6 mx-auto max-w-3xl">
-				<form onSubmit={(e) => e.preventDefault()}>
+			<div className="w-11/12 md:w-8/12 lg:w-5/12 ml-3 md:ml-28 lg:ml-96 mt-8">
+				<form>
 					<div className="mr-8 ml-8">
 						<label htmlFor="password" className="text-sm font-normal mb-4">
 							Select a meter Company
@@ -141,8 +141,8 @@ function Electricity() {
 						/>
 					</div>
 
-					{/* button */}
 					<FlutterWave handleSubmit={handleSubmit} />
+
 				</form>
 			</div>
 

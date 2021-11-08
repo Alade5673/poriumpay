@@ -62,7 +62,8 @@ function Data() {
 		localStorage.setItem(
 			"transctiondetails",
 			JSON.stringify(transactionDetails)
-		)
+		);
+		localStorage.setItem("phoneNumber", dataData.receiver_number)
 		setFlutter(true)
 	}
 
@@ -89,24 +90,19 @@ function Data() {
 		<div>
 			<Navbar />
 			<div className="flex ml-8 md:ml-40 lg:ml-40 mt-8">
-				<img
-					alt=""
-					src={arrow}
-					className="invisible md:invisible lg:invisible"
-				/>
 				<div className="flex ml-5 md:ml-20 lg:ml-96">
 					<img alt="" src={data_icon} className="h-6 ml-10" />
 					<p className="text-bodyText font-normal ml-3 text-l">Buy Data</p>
 				</div>
 			</div>
 
-			<div className="relative w-11/12 md:w-8/12 lg:w-5/12 my-6 mx-auto max-w-3xl">
-				<form onSubmit={(e) => e.preventDefault()}>
+			<div className="w-11/12 md:w-8/12 lg:w-5/12 ml-3 md:ml-12 lg:ml-96 mt-8">
+				<form>
 					<div className="mr-8 ml-8">
-						<label htmlFor="text" className="text-sm font-normal mb-4">
-							Select Network
-						</label>
-						<CustomSelect options={networkSelect} onChange={handleNetwork} />
+							<label htmlFor="text" className="text-sm font-normal mb-4">
+								Select Network
+							</label>
+							<CustomSelect options={networkSelect} onChange={handleNetwork} />
 					</div>
 
 					<div className="mr-8 ml-8">
@@ -135,19 +131,9 @@ function Data() {
 						/>
 					</div>
 
-					{/* button */}
 					<FlutterWave handleSubmit={handleSubmit} buttonName="Send Data" />
-					{/* <div className='flex justify-center items-center mt-6'>
-                            <button
-                                className="bg-brandBlue text-white w-60 h-12 pl-16 active:bg-emerald-600 flex items-center font-light text-lg px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-12 ease-linear transition-all duration-150"
-                                type="button"
-                                onClick={handleSubmit}
-                            >
-                                Send Data
-                                <img alt="" src={forward_arrow} className="h-4 w-4 mt-1 ml-8"/>
-                            </button>
-                        </div> */}
 				</form>
+
 			</div>
 
 			<div className="flex justify-center items-center flex-col pb-10 pt-20">

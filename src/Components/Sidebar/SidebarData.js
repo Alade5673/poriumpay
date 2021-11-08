@@ -1,5 +1,7 @@
 import React from 'react';
 import * as AiIcons from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+
 
 export const SidebarData = [
   {
@@ -28,19 +30,14 @@ export const SidebarData = [
     path: '/electricity',
     cName: 'nav-text'
   },
-  {
-    title: 'Add Card',
-    path: '/addcard',
-    cName: 'nav-text'
-  },
-  {
-    title: 'Contact Us',
-    path: '/contact',
-    cName: 'nav-text'
-  },
+  // {
+  //   title: 'Contact Us',
+  //   path: 'https://www.poriumpay.com/contact-us/',
+  //   cName: 'nav-text',
+  // },
   {
     title: 'Logout',
-    path: '/successfultransaction',
+    path: '/welcome',
     cName: 'nav-text'
   }
 ];

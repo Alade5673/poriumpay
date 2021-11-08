@@ -18,6 +18,7 @@ const FlutterWave = ({ handleSubmit, buttonName }) => {
 		public_key: test_key.public,
 		tx_ref: Date.now(),
 		amount: localStorage.getItem("transaction_amount"),
+		phonenumber: localStorage.getItem("phoneNumber"),
 		currency: "NGN",
 		payment_options: "card,mobilemoney,ussd",
 		customer: {
@@ -38,7 +39,7 @@ const FlutterWave = ({ handleSubmit, buttonName }) => {
 
 	const fwConfig = {
 		...config,
-		text: "Pay with Flutterwave!",
+		text: "Pay Now!",
 		callback: async (response) => {
 			setConfirm(false)
 			console.log(response)
@@ -56,7 +57,9 @@ const FlutterWave = ({ handleSubmit, buttonName }) => {
 	return (
 		<div className="flex justify-center items-center mt-6">
 			{confirm ? (
-				<FlutterWaveButton {...fwConfig} />
+				<FlutterWaveButton {...fwConfig}
+				className="bg-brandBlue text-white w-44 md:w-60 lg:w-56 h-12 pl-16 text-xs md:text-sm lg:text-lg active:bg-emerald-600 flex items-center font-light px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-12 ease-linear transition-all duration-150"
+					/>
 			) : (
 				<button
 					className="bg-brandBlue text-white w-60 h-12 pl-16 active:bg-emerald-600 flex items-center font-light text-lg px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-12 ease-linear transition-all duration-150"

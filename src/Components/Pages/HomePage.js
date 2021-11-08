@@ -19,8 +19,13 @@ import { SidebarData } from '../Sidebar/SidebarData';
 import '../Sidebar/Navbar.css'
 import { IconContext } from 'react-icons';
 import Navbar from "../Sidebar/Navbar";
+import disableScroll from 'disable-scroll';
 
 function Homepage() {
+
+    disableScroll.on(); // prevent scrolling
+
+    disableScroll.off();
 
     const history = useHistory();
 
@@ -37,45 +42,45 @@ function Homepage() {
             <div className="flex">
                     {/* airtime */}
                     <div className=" -ml-4 lg:ml-52 md:ml-4">
-                        <button className="w-20 md:w-24 lg:w-24 bg-airtimeColor md:text-sm text-xs text-white rounded-2xl h-12 " 
+                        <button className="w-16 md:w-24 lg:w-24 bg-airtimeColor md:text-sm text-xs text-white rounded-2xl h-12 " 
                         onClick={() => history.push('/airtime')}>
-                            <img alt="" src={airtime} className="w-6 ml-8"/>
+                            <img alt="" src={airtime} className="w-6 ml-5 lg:ml-8"/>
                         </button>
-                        <p className="text-sm font-light mt-3 ml-4 md:ml-7 lg:ml-7 "> Airtime </p>
+                        <p className="text-sm font-light mt-3 ml-2 md:ml-7 lg:ml-7 "> Airtime </p>
                     </div>
 
                     {/* data */}
                     <div className="ml-2 md:ml-20 lg:ml-20">
-                        <button className="w-20 md:w-24 lg:w-24 bg-dataColor md:text-sm text-xs text-white rounded-2xl h-12 " 
+                        <button className="w-16 md:w-24 lg:w-24 bg-dataColor md:text-sm text-xs text-white rounded-2xl h-12 " 
                         onClick={() => history.push('/data')}>
-                            <img alt="" src={data} className="w-6 ml-8"/>
+                            <img alt="" src={data} className="w-6 ml-5 lg:ml-8"/>
                         </button>
-                        <p className="text-sm font-light mt-3 ml-7 "> Data </p>
+                        <p className="text-sm font-light mt-3 ml-4 md:ml-7 lg:ml-7 "> Data </p>
                     </div>
 
                     {/* cable */}
                     <div className="ml-2 md:ml-20 lg:ml-20">
-                        <button className="w-20 md:w-24 lg:w-24 bg-cableColor md:text-sm text-xs text-white rounded-2xl h-12 " 
+                        <button className="w-16 md:w-24 lg:w-24 bg-cableColor md:text-sm text-xs text-white rounded-2xl h-12 " 
                         onClick={() => history.push('/cable')}>
-                            <img alt="" src={cable} className="w-6 ml-8"/>
+                            <img alt="" src={cable} className="w-6 ml-5 lg:ml-8"/>
                         </button>
                         <p className="text-sm font-light mt-3 ml-3 lg:ml-7 md:ml-4 "> Cable TV </p>
                     </div>
 
                     {/* electricity */}
                     <div className="ml-2 md:ml-20 lg:ml-20">
-                        <button className="w-20 md:w-24 lg:w-24 bg-electricityColor md:text-sm text-xs text-white rounded-2xl h-12 " 
+                        <button className="w-16 md:w-24 lg:w-24 bg-electricityColor md:text-sm text-xs text-white rounded-2xl h-12 " 
                         onClick={() => history.push('/electricity')}>
-                            <img alt="" src={electricity} className="w-6 ml-8"/>
+                            <img alt="" src={electricity} className="w-6 ml-5 lg:ml-8"/>
                         </button>
-                        <p className="text-sm font-light mt-3 ml-3 lg:ml-7 md:ml-4"> Electricity </p>
+                        <p className="text-sm font-light mt-3 ml-1 lg:ml-7 md:ml-4"> Electricity </p>
                     </div>
             </div>
 
 
             <div className="md:flex lg:flex -ml-8 lg:ml-96 md:ml-32">
-                <img alt="" src={lock} className="md:w-8 lg:w-8 ml-40 md:ml-12 lg:ml-8"/>
-                <p className="text-sm font-normal mt-2 ml-16 md:ml-3 lg:ml-7 "> Securely Add Your Debit card details </p>
+                <img alt="" src={lock} className="md:w-8 lg:w-8 ml-36 md:ml-12 lg:ml-8"/>
+                <p className="text-xs md:text-sm lg:text-sm font-normal mt-2 ml-16 md:ml-3 lg:ml-7 "> Securely Add Your Debit card details </p>
             </div>
 
             {/* button */}

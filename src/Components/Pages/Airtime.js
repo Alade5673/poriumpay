@@ -1,6 +1,4 @@
-/** @format */
-
-import React from "react"
+import React, {useState} from "react"
 import Navbar from "../Sidebar/Navbar"
 import arrow from "../../assests/back_arrow.svg"
 import airtime_icon from "../../assests/airtime_icon.svg"
@@ -13,8 +11,22 @@ import etisalat from "../../assests/etisalat.png"
 import CustomSelect from "../select"
 import FlutterWave from "../flutterwave"
 import bills from "../../bills"
+import { Helmet } from "react-helmet"
+import { SidebarData } from '../Sidebar/SidebarData';
+import '../Sidebar/Navbar.css'
+import disableScroll from 'disable-scroll';
+// import Navbar from "../Sidebar/Navbar";
 
 function Airtime() {
+
+	disableScroll.on(); // prevent scrolling
+
+    disableScroll.off();
+
+	const [sidebar, setSidebar] = useState(false);
+
+  	const showSidebar = () => setSidebar(!sidebar);
+
 	const [network, setNetwork] = React.useState("")
 
 	const [flutter, setFlutter] = React.useState(false)
@@ -83,19 +95,16 @@ function Airtime() {
 		<div>
 			<Navbar />
 			<div className="flex ml-8 md:ml-40 lg:ml-40 mt-8">
-				<img
-					alt=""
-					src={arrow}
-					className="invisible md:invisible lg:invisible"
-				/>
+
 				<div className="flex ml-5 md:ml-20 lg:ml-96">
 					<img alt="" src={airtime_icon} className="h-6 ml-10" />
 					<p className="text-bodyText font-normal ml-3 text-l">Buy airtime</p>
 				</div>
+
 			</div>
 
-			<div className="relative w-11/12 md:w-8/12 lg:w-5/12 my-6 mx-auto max-w-3xl">
-				<form onSubmit={(e) => e.preventDefault()}>
+			<div className="w-11/12 md:w-8/12 lg:w-5/12 ml-3 md:ml-28 lg:ml-96 mt-8">
+				<form>
 					<div className="mr-8 ml-8">
 						<label htmlFor="text" className="text-sm font-normal mb-4">
 							Select Network
@@ -133,10 +142,12 @@ function Airtime() {
 						/>
 					</div>
 
-					{/* button */}
 					<FlutterWave handleSubmit={handleSubmit} buttonName="Send Airtime" />
 				</form>
 			</div>
+			
+
+			
 
 			<div className="flex justify-center items-center flex-col pb-10 pt-20">
 				<p className="text-sm font-normal  mt-4 text-black">
