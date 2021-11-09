@@ -16,11 +16,11 @@ function Cable() {
 	const [cableTv, setCableTv] = React.useState("")
 	const [biller, setBiller] = React.useState("")
 	const [billingList, setBillingList] = React.useState(null)
+	const [amount, setAmount] = useState(0)
 
 	const [flutter, setFlutter] = React.useState(false)
 
 	const [cableData, setCableData] = React.useState({
-		amount: "",
 		decoder_number: "",
 	})
 
@@ -30,8 +30,6 @@ function Cable() {
 		const newData = { ...cableData }
 		newData[e.target.id] = e.target.value
 		setCableData(newData)
-
-		console.log(newData)
 	}
 
 	const handleChange = (event) => {
@@ -51,13 +49,13 @@ function Cable() {
 		setBiller("")
 	}
 
-	const handleSubmit = () => {
-		console.log(cableTv)
-		console.log(cableData)
-		console.log(cableData.amount)
-		console.log(cableData.decoder_number)
+	const _handleBillerChange = (e) => {
+		setBiller(e.target.value)
+		setAmount(e.target.amount || 14500)
+	}
 
-		localStorage.setItem("transaction_amount", cableData.amount)
+	const handleSubmit = () => {
+		localStorage.setItem("transaction_amount", amount)
 		const transactionDetails = {
 			transaction_type: "cable_tv",
 			biller,
@@ -66,7 +64,7 @@ function Cable() {
 			description: `recharged ${cableTv} on ${cableData.decoder_number}`,
 		}
 		localStorage.setItem(
-			"transctiondetails",
+			"transaction_details",
 			JSON.stringify(transactionDetails)
 		)
 		setFlutter(true)
@@ -87,6 +85,9 @@ function Cable() {
 		},
 	]
 
+	const prevent = (e) => {
+		e.preventDefault()
+	}
 	return (
 		<div>
 			<Navbar />
@@ -99,8 +100,8 @@ function Cable() {
 			</div>
 
 			<div className="w-11/12 md:w-8/12 lg:w-5/12 ml-3 md:ml-28 lg:ml-96 mt-8">
-				<form>
-				<div className="mr-8 ml-8">
+				<form onSubmit={prevent}>
+					<div className="mr-8 ml-8">
 						<label htmlFor="text" className="text-sm font-normal mb-4">
 							Select a TV Company
 						</label>
@@ -113,7 +114,7 @@ function Cable() {
 						</label>
 						<CustomSelect
 							options={billingList}
-							onChange={(e) => setBiller(e.target.value)}
+							onChange={_handleBillerChange}
 							value={biller}
 						/>
 					</div>
@@ -123,13 +124,14 @@ function Cable() {
 							Enter amount
 						</label>
 						<input
-							type="number"
+							type="text"
 							className={`w-full p-2 text-primary border rounded-xl outline-none text-sm transition duration-150 ease-in-out mb-4 border-blue-700`}
 							id="amount"
+							readOnly
 							placeholder="Type in amount"
-							required
-							onChange={(e) => handleCable(e)}
-							value={cableData.amount}
+							// required
+							// onChange={(e) => handleCable(e)}
+							value={amount}
 						/>
 					</div>
 

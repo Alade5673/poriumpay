@@ -58,7 +58,7 @@ function Electricity() {
 			description: `power top up for meter ${meterData.meter_number}`,
 		}
 		localStorage.setItem(
-			"transctiondetails",
+			"transaction_details",
 			JSON.stringify(transactionDetails)
 		)
 		setFlutter(true)
@@ -73,6 +73,9 @@ function Electricity() {
 		},
 	]
 
+	const prevent = (e) => {
+		e.preventDefault()
+	}
 	return (
 		<div>
 			<Navbar />
@@ -89,7 +92,7 @@ function Electricity() {
 			</div>
 
 			<div className="w-11/12 md:w-8/12 lg:w-5/12 ml-3 md:ml-28 lg:ml-96 mt-8">
-				<form>
+				<form onSubmit={prevent}>
 					<div className="mr-8 ml-8">
 						<label htmlFor="password" className="text-sm font-normal mb-4">
 							Select a meter Company
@@ -142,7 +145,6 @@ function Electricity() {
 					</div>
 
 					<FlutterWave handleSubmit={handleSubmit} />
-
 				</form>
 			</div>
 

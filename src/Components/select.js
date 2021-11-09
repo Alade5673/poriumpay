@@ -12,11 +12,11 @@ const CustomSelect = ({ options, onChange, value }) => {
 		biller: null,
 	})
 
-	const _handleSelect = ({ img, name, biller, biller_name }) => {
+	const _handleSelect = ({ img, name, biller, biller_name, amount }) => {
 		setSelected({ img, name, biller: biller_name })
 		setOpen(false)
 		if (typeof onChange === "function") {
-			onChange({ target: { value: biller_name || name, biller: biller } })
+			onChange({ target: { value: biller_name || name, biller, amount } })
 		}
 	}
 

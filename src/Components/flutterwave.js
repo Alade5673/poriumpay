@@ -10,9 +10,12 @@ const FlutterWave = ({ handleSubmit, buttonName }) => {
 	const full_name = localStorage.getItem("full_name")
 	const email = localStorage.getItem("user_email")
 
-	const test_key = {
+	const live_key = {
 		public: "FLWPUBK-9d7443ebae91f01d676eda8a8edcf424-X",
-		secret: "FLWSECK-0b4ef8f2725261fa6903724a4a79c8bc-X",
+	}
+
+	const test_key = {
+		public: "FLWPUBK_TEST-fd10e76ce98e0f66db8969a0aee569ec-X",
 	}
 	const config = {
 		public_key: test_key.public,
@@ -30,7 +33,6 @@ const FlutterWave = ({ handleSubmit, buttonName }) => {
 			description: "Bill Payment",
 		},
 	}
-	console.log(email)
 
 	const _handleSubmit = () => {
 		handleSubmit()
@@ -41,12 +43,17 @@ const FlutterWave = ({ handleSubmit, buttonName }) => {
 		...config,
 		text: "Pay Now!",
 		callback: async (response) => {
+			const headers = {
+				'Authorization': `Bearer ${localStorage.getItem("authToken")}`,
+			}
 			setConfirm(false)
 			console.log(response)
-			await axios.post(
-				"http://137.184.202.230/api/v1/pay-bills",
-				JSON.parse(localStorage.getItem("transactionDetails"))
-			)
+			const request = await axios({method:"POST",
+				url:"https://api.poriumpay.com/api/v1/pay-bills",
+				data:JSON.parse(localStorage.getItem("transaction_details")),
+				headers,
+			})
+			console.log(request)
 			closePaymentModal() // this will close the modal programmatically
 		},
 		onClose: () => {
@@ -57,9 +64,10 @@ const FlutterWave = ({ handleSubmit, buttonName }) => {
 	return (
 		<div className="flex justify-center items-center mt-6">
 			{confirm ? (
-				<FlutterWaveButton {...fwConfig}
-				className="bg-brandBlue text-white w-44 md:w-60 lg:w-56 h-12 pl-16 text-xs md:text-sm lg:text-lg active:bg-emerald-600 flex items-center font-light px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-12 ease-linear transition-all duration-150"
-					/>
+				<FlutterWaveButton
+					{...fwConfig}
+					className="bg-brandBlue text-white w-44 md:w-60 lg:w-56 h-12 pl-16 text-xs md:text-sm lg:text-lg active:bg-emerald-600 flex items-center font-light px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-12 ease-linear transition-all duration-150"
+				/>
 			) : (
 				<button
 					className="bg-brandBlue text-white w-60 h-12 pl-16 active:bg-emerald-600 flex items-center font-light text-lg px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-12 ease-linear transition-all duration-150"

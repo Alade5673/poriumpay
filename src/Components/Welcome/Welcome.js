@@ -175,6 +175,7 @@ function Welcome() {
         .then((res) => {
           setLoading(false);
           toast.success(res.data.message, { autoClose: 3000 });
+          localStorage.setItem("authToken", res.data.data.token)
           localStorage.setItem("full_name", res.data.data.full_name);
           localStorage.setItem("user_email", res.data.data.email);
           history.push("/home" || setShowLogin(false));

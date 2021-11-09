@@ -1,6 +1,6 @@
 /** @format */
 
-import React from "react"
+import React, { useState } from "react"
 import Navbar from "../Sidebar/Navbar"
 import arrow from "../../assests/back_arrow.svg"
 import data_icon from "../../assests/data_icon.svg"
@@ -17,19 +17,22 @@ function Data() {
 	const [network, setNetwork] = React.useState("")
 	const [bundleData, setBundleData] = React.useState("")
 	const [bundles, setBundles] = React.useState(null)
+	const [amount, setAmount] = useState(0)
 
 	const [flutter, setFlutter] = React.useState(false)
 
 	const handleNetwork = (event) => {
 		setNetwork(event.target.value)
-		const bill_list = bills.filter((value) =>
-			value.name.includes(event.target.value)
+		const bill_list = bills.filter(
+			(value) =>
+				value.name.includes(event.target.value) && value.country.includes("NG")
 		)
 		setBundles(bill_list)
 		setBundleData("")
 	}
 
 	const handleBundle = (event) => {
+		setAmount(event.target?.amount)
 		setBundleData(event.target.value)
 	}
 
@@ -43,26 +46,22 @@ function Data() {
 		const newData = { ...dataData }
 		newData[e.target.id] = e.target.value
 		setDataData(newData)
-
-		console.log(newData)
 	}
 
 	const handleSubmit = () => {
-		console.log(network)
-		console.log(bundleData)
-		console.log(dataData.receiver_number)
+		localStorage.setItem("transaction_amount", amount)
 
 		const transactionDetails = {
 			transaction_type: "data",
 			biller: bundleData,
-			amount: 0,
+			amount,
 			customer: dataData.receiver_number,
 			description: `${network} data bundle  on ${dataData.receiver_number}`,
 		}
 		localStorage.setItem(
-			"transctiondetails",
+			"transaction_details",
 			JSON.stringify(transactionDetails)
-		);
+		)
 		localStorage.setItem("phoneNumber", dataData.receiver_number)
 		setFlutter(true)
 	}
@@ -86,6 +85,10 @@ function Data() {
 		},
 	]
 
+	const prevent = (e) => {
+		e.preventDefault()
+	}
+
 	return (
 		<div>
 			<Navbar />
@@ -97,12 +100,12 @@ function Data() {
 			</div>
 
 			<div className="w-11/12 md:w-8/12 lg:w-5/12 ml-3 md:ml-12 lg:ml-96 mt-8">
-				<form>
+				<form onSubmit={prevent}>
 					<div className="mr-8 ml-8">
-							<label htmlFor="text" className="text-sm font-normal mb-4">
-								Select Network
-							</label>
-							<CustomSelect options={networkSelect} onChange={handleNetwork} />
+						<label htmlFor="text" className="text-sm font-normal mb-4">
+							Select Network
+						</label>
+						<CustomSelect options={networkSelect} onChange={handleNetwork} />
 					</div>
 
 					<div className="mr-8 ml-8">
@@ -133,7 +136,6 @@ function Data() {
 
 					<FlutterWave handleSubmit={handleSubmit} buttonName="Send Data" />
 				</form>
-
 			</div>
 
 			<div className="flex justify-center items-center flex-col pb-10 pt-20">
