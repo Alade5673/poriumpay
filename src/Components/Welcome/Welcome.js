@@ -22,9 +22,9 @@ function Welcome() {
 
   toast.configure()
 
-  const signUp="http://137.184.202.230/api/v1/sign-up";
-  const login="http://137.184.202.230/api/v1/sign-in";
-  const forgotPassword="http://137.184.202.230/api/v1/forgot-password"
+  const signUp="https://api.poriumpay.com/api/v1/sign-up";
+  const login="https://api.poriumpay.com/api/v1/sign-in";
+  const forgotPassword="https://api.poriumpay.com/api/v1/forgot-password"
 
     const [showModal, setShowModal] = useState(false);
 
@@ -35,7 +35,7 @@ function Welcome() {
     const [showforgotOTP, setShowForgotOTP] = useState(false);
 
     const [showForgotPassword, setShowForgotPassword] = useState(false);
-
+    
     const [showResetPassword, setShowResetPassword] = useState(false)
 
     const [showLogOut, setShowLogOut] = useState(false);
@@ -144,7 +144,7 @@ function Welcome() {
 
         var otp = `${verifyData.first + verifyData.second + verifyData.third + verifyData.fourth}`
         axios
-        .post("http://137.184.202.230/api/v1/verify-email", {
+        .post("https://api.poriumpay.com/api/v1/verify-email", {
           otp_code: otp.toString(),
           email: email
         })
@@ -227,7 +227,7 @@ function Welcome() {
 
         var otp = `${forgotOTPData.first + forgotOTPData.second + forgotOTPData.third + forgotOTPData.fourth}`
         axios
-        .post("http://137.184.202.230/api/v1/verify-otp", {
+        .post("https://api.poriumpay.com/api/v1/verify-otp", {
           otp_code: otp.toString(),
           email: forgot_email
         })
@@ -253,7 +253,7 @@ function Welcome() {
         e.preventDefault();
 
         axios
-        .post("http://137.184.202.230/api/v1/reset-password", {
+        .post("https://api.poriumpay.com/api/v1/reset-password", {
           email: forgot_email,
           new_password: resetData.new_password,
           confirm_password: resetData.confirm_password
