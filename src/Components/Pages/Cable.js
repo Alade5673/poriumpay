@@ -35,9 +35,7 @@ function Cable() {
 	const handleChange = (event) => {
 		setCableTv(event.target.value)
 		setBillingList(
-			event.target.value.includes("DSTV")
-				? [{ biller_name: "DSTV Premium" }]
-				: bills.filter(
+			bills.filter(
 						(value) =>
 							value.country.includes("NG") &&
 							value.label_name.includes("SmartCard Number") &&

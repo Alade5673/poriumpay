@@ -25,7 +25,7 @@ function Data() {
 		setNetwork(event.target.value)
 		const bill_list = bills.filter(
 			(value) =>
-				value.name.includes(event.target.value) && value.country.includes("NG")
+				value.name.includes(event.target.value) && value.country.includes("NG") && !value.biller_name.includes("AIRTIME")
 		)
 		setBundles(bill_list)
 		setBundleData("")
