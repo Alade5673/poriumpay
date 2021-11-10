@@ -36,13 +36,11 @@ function Cable() {
 		setCableTv(event.target.value)
 		setBillingList(
 			bills.filter(
-						(value) =>
-							value.country.includes("NG") &&
-							value.label_name.includes("SmartCard Number") &&
-							value.name
-								.toLowerCase()
-								.includes(event.target.value.toLowerCase())
-				  )
+				(value) =>
+					value.country.includes("NG") &&
+					value.label_name.includes("SmartCard Number") &&
+					value.name.toLowerCase().includes(event.target.value.toLowerCase())
+			)
 		)
 		setBiller("")
 	}
@@ -57,7 +55,7 @@ function Cable() {
 		const transactionDetails = {
 			transaction_type: "cable_tv",
 			biller,
-			amount: cableData.amount,
+			amount: amount,
 			customer: cableData.decoder_number,
 			description: `recharged ${cableTv} on ${cableData.decoder_number}`,
 		}
@@ -85,6 +83,13 @@ function Cable() {
 
 	const prevent = (e) => {
 		e.preventDefault()
+	}
+
+	const _handleEnable = () => {
+		if (cableTv !== "" && biller !== "" && cableData.decoder_number !== "") {
+			return true
+		}
+		return false
 	}
 	return (
 		<div>
@@ -148,7 +153,11 @@ function Cable() {
 						/>
 					</div>
 
-					<FlutterWave handleSubmit={handleSubmit} buttonName="Continue" />
+					<FlutterWave
+						handleSubmit={handleSubmit}
+						buttonName="Continue"
+						enabled={_handleEnable()}
+					/>
 				</form>
 			</div>
 

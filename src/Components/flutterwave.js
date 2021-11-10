@@ -5,7 +5,7 @@ import forward_arrow from "../assests/forward_arrow.svg"
 import { FlutterWaveButton, closePaymentModal } from "flutterwave-react-v3"
 import axios from "axios"
 
-const FlutterWave = ({ handleSubmit, buttonName }) => {
+const FlutterWave = ({ handleSubmit, buttonName, enabled }) => {
 	const [confirm, setConfirm] = React.useState(false)
 	const full_name = localStorage.getItem("full_name")
 	const email = localStorage.getItem("user_email")
@@ -73,6 +73,7 @@ const FlutterWave = ({ handleSubmit, buttonName }) => {
 					className="bg-brandBlue text-white w-60 h-12 pl-16 active:bg-emerald-600 flex items-center font-light text-lg px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-12 ease-linear transition-all duration-150"
 					type="button"
 					onClick={_handleSubmit}
+					disabled={!enabled}
 				>
 					{buttonName || "Continue"}
 					<img alt="" src={forward_arrow} className="h-4 w-4 mt-1 ml-8" />

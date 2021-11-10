@@ -90,6 +90,17 @@ function Airtime() {
 		e.preventDefault()
 	}
 
+	const _handleEnable = () => {
+		if (
+			airtimeData.receiver_number === 11 &&
+			airtimeData.amount !== "" &&
+			network !== ""
+		) {
+			return true
+		}
+		return false
+	}
+
 	return (
 		<div>
 			<Navbar />
@@ -139,7 +150,11 @@ function Airtime() {
 						/>
 					</div>
 
-					<FlutterWave handleSubmit={handleSubmit} buttonName="Send Airtime" />
+					<FlutterWave
+						handleSubmit={handleSubmit}
+						buttonName="Send Airtime"
+						enabled={_handleEnable()}
+					/>
 				</form>
 			</div>
 

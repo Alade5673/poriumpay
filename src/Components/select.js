@@ -36,8 +36,11 @@ const CustomSelect = ({ options, onChange, value }) => {
 				<img src={open ? up : down} alt="" className="w-4" />
 			</div>
 			{open && (
-				<div className="pl-2 py-4 pr-4 absolute bg-white ml-3 w-10/12 shadow-sm h-52 overflow-y-auto">
-					{options.map((value, index) => (
+				<div
+					onMouseLeave={() => setOpen(false)}
+					className="pl-2 py-4 pr-4 absolute bg-white ml-3 w-1/3 shadow-sm h-52 overflow-y-auto"
+				>
+					{options?.map((value, index) => (
 						<div
 							key={index}
 							className="flex items-center space-x-4 pb-2 mb-2 border-b border-gray-100"

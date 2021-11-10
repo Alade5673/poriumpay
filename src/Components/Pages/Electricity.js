@@ -36,8 +36,6 @@ function Electricity() {
 		const newData = { ...meterData }
 		newData[e.target.id] = e.target.value
 		setMeterData(newData)
-
-		console.log(newData)
 	}
 
 	const handleChange = (event) => {
@@ -75,6 +73,18 @@ function Electricity() {
 
 	const prevent = (e) => {
 		e.preventDefault()
+	}
+
+	const _handleEnable = () => {
+		if (
+			meter !== "" &&
+			meterData.amount !== "" &&
+			meterData.meter_number !== "" &&
+			meterType !== ""
+		) {
+			return true
+		}
+		return false
 	}
 	return (
 		<div>
@@ -144,7 +154,7 @@ function Electricity() {
 						/>
 					</div>
 
-					<FlutterWave handleSubmit={handleSubmit} />
+					<FlutterWave handleSubmit={handleSubmit} enabled={_handleEnable()} />
 				</form>
 			</div>
 

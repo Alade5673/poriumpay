@@ -25,7 +25,9 @@ function Data() {
 		setNetwork(event.target.value)
 		const bill_list = bills.filter(
 			(value) =>
-				value.name.includes(event.target.value) && value.country.includes("NG") && !value.biller_name.includes("AIRTIME")
+				value.name.includes(event.target.value) &&
+				value.country.includes("NG") &&
+				!value.biller_name.includes("AIRTIME")
 		)
 		setBundles(bill_list)
 		setBundleData("")
@@ -89,6 +91,17 @@ function Data() {
 		e.preventDefault()
 	}
 
+	const _handleEnable = () => {
+		if (
+			dataData.receiver_number.length === 11 &&
+			bundleData &&
+			network !== ""
+		) {
+			return true
+		}
+		return false
+	}
+
 	return (
 		<div>
 			<Navbar />
@@ -134,7 +147,11 @@ function Data() {
 						/>
 					</div>
 
-					<FlutterWave handleSubmit={handleSubmit} buttonName="Send Data" />
+					<FlutterWave
+						handleSubmit={handleSubmit}
+						buttonName="Send Data"
+						enabled={_handleEnable()}
+					/>
 				</form>
 			</div>
 
