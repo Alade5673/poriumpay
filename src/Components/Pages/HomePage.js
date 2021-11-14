@@ -6,9 +6,10 @@ import airtime from '../../assests/airtime.svg'
 import data from '../../assests/data.svg'
 import cable from '../../assests/cable.svg'
 import electricity from '../../assests/electricity.svg'
+import hist from '../../assests/history.svg'
+import history from '../../assests/history.svg'
 import lock from '../../assests/lock.svg'
 import next from '../../assests/next_icon.svg'
-import history from '../../assests/history.svg'
 import historyGray from '../../assests/history_gray.svg'
 import Login from "../Authentication/Login";
 import {useHistory} from "react-router-dom"
@@ -113,7 +114,7 @@ function Homepage() {
            
             <div className="flex">
                     {/* airtime */}
-                    <div className=" ml-20 lg:ml-52 md:ml-4">
+                    <div className=" ml-7 lg:ml-52 md:ml-4">
                         <button className="w-16 md:w-24 lg:w-24 bg-airtimeColor md:text-sm text-xs text-white rounded-2xl h-12 " 
                         onClick={() => history.push('/airtime')}
                         >
@@ -165,8 +166,8 @@ function Homepage() {
                 </button> */}
 
                 <div className="bg-brandBlue w-11/12 md:w-11/12 lg:w-7/12 ml-4 md:ml-6 lg:ml-52 rounded-t-xl h-8 flex ">
-                    <img alt="" src={history} className="h-5 ml-72 mt-1"/>
-                    <p className="text-sm font-light -ml-28 md:ml-0 lg:ml-7 mt-1 text-white"> History </p>
+                    <img alt="" src={hist} className="h-5 ml-28 md:ml-40 lg:ml-64 mt-1"/>
+                    <p className="text-sm font-light ml-6 md:ml-0 lg:ml-7 mt-1 text-white"> History </p>
                 </div>
 
                 {/* <div className="flex invisible md:visible lg:visible md:ml-10 lg:ml-60">
