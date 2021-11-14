@@ -19,7 +19,7 @@ function Navbar() {
   return (
     <div>
       <IconContext.Provider value={{ color: '#143784' } } className="flex ">
-          <div className="flex ml-0 md:ml-16 lg:ml-28 ">
+          <div className="flex ml-8 md:ml-16 lg:ml-28 ">
             <div className='navbar'>
                 <Link to='#' className='menu-bars'>
                     <FaIcons.FaBars onClick={showSidebar} />
@@ -28,12 +28,12 @@ function Navbar() {
             </div>
 
             <div className="flex bg-menuColor h-20 pl-8 sm:pl-0 -md:pl-10 lg:pl-8">
-                    <div className="flex justify-center items-baseline place-self-center -ml-8 lg:ml-80 md:ml-20">
+                    <div className="flex justify-center items-baseline place-self-center ml-4 lg:ml-80 md:ml-20">
                         <img alt="" src={watermark} className=" w-8 md:w-12 lg:w-12 "/>
                         <img alt="" src={name} className="h-4 w-8 md:w-12 lg:w-12"/>
                     </div>
                     <a href="https://www.poriumpay.com/contact-us/">
-                      <img alt="" src={phone} className="visible md:invisible lg:invisible h-4 mt-8  ml-10 md:ml-0 lg:ml-0"/>
+                      <img alt="" src={phone} className="visible md:invisible lg:invisible h-4 mt-8  ml-20 md:ml-0 lg:ml-0"/>
                     </a>
                     <a href="https://www.poriumpay.com/contact-us/">
                       <p className=" invisible md:visible lg:visible text-lg font-light mt-8 ml-10 lg:ml-60 md:ml-28 pr-0 md:pr-6 lg:pr-7">Contact Us</p>

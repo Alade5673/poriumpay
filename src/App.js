@@ -40,15 +40,15 @@ function App() {
   //   query: "(min-device-width: 1201px )",
   // });
 
-  disableScroll.on(); // prevent scrolling
+  // disableScroll.on(); // prevent scrolling
 
-  disableScroll.off();
+  // disableScroll.off();
 
-  window.addEventListener("scroll", noScroll);
+  // window.addEventListener("scroll", noScroll);
 
-  function noScroll(){
-    window.scrollTo(0,0)
-  }
+  // function noScroll(){
+  //   window.scrollTo(0,0)
+  // }
 
   const [user, setUser] = useState();
 

@@ -350,11 +350,11 @@ const handleReset = (e) => {
    <div>
      <Navbar/>
     <div className="w-full h-screen flex justify-center md:justify-center lg:mt-32 mt-10 md:mt-32">
-        <div className="flex bg-cardColor shadow-sm flex-col  h-full w-10/12  space-y-8">
+        <div className="flex bg-cardColor shadow-sm flex-col  h-full w-10/12 md:w-10/12 lg:w-10/12  space-y-8">
 
         <div className="flex">
                     {/* airtime */}
-                    <div className=" -ml-4 lg:ml-52 md:ml-4">
+                    <div className=" ml-20 lg:ml-52 md:ml-4">
                         <button className="w-16 md:w-24 lg:w-24 bg-airtimeColor md:text-sm text-xs text-white rounded-2xl h-12 " 
                         // onClick={() => history.push('/airtime')}
                         >
@@ -395,19 +395,19 @@ const handleReset = (e) => {
             </div>
 
 
-            <div className="md:flex lg:flex -ml-8 lg:ml-96 md:ml-32">
+            <div className="md:flex lg:flex ml-16 lg:ml-96 md:ml-32">
                 <img alt="" src={lock} className="md:w-8 lg:w-8 ml-36 md:ml-12 lg:ml-8"/>
                 <p className=" text-xs md:text-sm lg:text-sm font-normal mt-2 ml-16 md:ml-3 lg:ml-7 "> Securely Add Your Debit card details </p>
             </div>
 
             {/* button */}
-                <button className="w-10/12 lg:w-5/12 bg-transparent border-2 font-light border-blue-900 md:text-sm text-xs text-black rounded-2xl h-16 md:h-12 lg:h-10 ml-6 lg:ml-80 md:ml-12" >
+                <button className="w-10/12 lg:w-5/12 bg-transparent border-2 font-light border-blue-900 md:text-sm text-xs text-black rounded-2xl h-16 md:h-12 lg:h-10 ml-8 lg:ml-80 md:ml-12" >
                     Add card details
                 </button>
 
                 <div className="bg-brandBlue w-11/12 md:w-11/12 lg:w-7/12 ml-4 md:ml-6 lg:ml-52 rounded-t-xl h-8 flex ">
                     <img alt="" src={history} className="h-5 ml-72 mt-1"/>
-                    <p className="text-sm font-light -ml-44 md:ml-0 lg:ml-7  mt-1 text-white"> History </p>
+                    <p className="text-sm font-light -ml-28 md:ml-0 lg:ml-7  mt-1 text-white"> History </p>
                 </div>
 
                 <div className="flex invisible md:visible lg:visible md:ml-10 lg:ml-60">
@@ -432,19 +432,19 @@ const handleReset = (e) => {
         {/* create account */}
         <div>
         {showModal ? (
-        < div className="bg-opacity-40">
+        < div className="bg-opacity-56">
           <div
-            className="justify-center -ml-28 -md:ml-40 lg:ml-0 lg:items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none w-full bg-black bg-opacity-40"
+            className="justify-center ml-0 -md:ml-40 lg:ml-0 lg:items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none w-full bg-black bg-opacity-40"
           >
-            <div className="relative w-6/12 lg:w-5/12 md:w-8/12 my-6 mx-auto max-w-3xl">
+            <div className="relative w-11/12 lg:w-5/12 md:w-8/12 my-6 mx-auto max-w-3xl">
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex  pl-12 md:pl-48 lg:pl-48 p-5 border-solid border-blueGray-200 rounded-t">
-                  <h3 className=" text-sm md:text-xl lg:text-xl font-semibold ">
+                  <h3 className=" text-sm md:text-xl lg:text-xl font-semibold ml-28 md:ml-0 lg:ml-0">
                     Create Account
                   </h3>
-                  <h3 className="text-sm font-normal text-gray-400 ml-16 md:ml-28 lg:ml-28 mt-1" onClick={() => setShowLogin(true) || setShowModal(false)}>
+                  <h3 className="text-sm font-normal text-gray-400 ml-28 md:ml-28 lg:ml-28 mt-1" onClick={() => setShowLogin(true) || setShowModal(false)}>
                     Login
                   </h3>
 
@@ -520,17 +520,17 @@ const handleReset = (e) => {
       {showLogin ? (
         <>
           <div
-            className="justify-center -ml-56 -md:ml-20 lg:ml-0 -mt-96 md:mt-0 lg:mt-0  items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-black bg-opacity-40"
+            className="justify-center -ml-20 -md:ml-20 lg:ml-0 -mt-96 md:mt-0 lg:mt-0  items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-black bg-opacity-40"
           >
-            <div className="relative w-4/12 lg:w-5/12 md:w-5/12 my-6 mx-auto max-w-3xl">
+            <div className="relative w-7/12 lg:w-5/12 md:w-5/12 my-6 mx-auto max-w-3xl">
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex p-5 pl-0 md:pl-20 lg:pl-64 border-solid border-blueGray-200 rounded-t">
-                  <h3 className="text-sm md:text-xl lg:text-xl font-semibold ml-16 md:ml-0 lg:ml-0">
+                  <h3 className="text-sm md:text-xl lg:text-xl font-semibold ml-28 md:ml-0 lg:ml-0">
                   Login
                   </h3>
-                  <h3 className="text-xs md:text-sm lg:text-sm font-normal text-gray-400 ml-10 md:ml-20 lg:ml-24 mt-1" onClick={() => setShowModal(true) || setShowLogin(false)}>
+                  <h3 className="text-xs md:text-sm lg:text-sm font-normal text-gray-400 ml-20 md:ml-20 lg:ml-24 mt-1" onClick={() => setShowModal(true) || setShowLogin(false)}>
                   Create Account?
                   </h3>
 
@@ -602,9 +602,9 @@ const handleReset = (e) => {
       {showVerify ? (
         <>
           <div
-            className="justify-center -ml-40 -md:ml-40 lg:ml-0 -mt-96 -md:mt-40 lg:mt-0 items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-black bg-opacity-40"
+            className="justify-center -ml-20 -md:ml-40 lg:ml-0 -mt-96 -md:mt-40 lg:mt-0 items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-black bg-opacity-40"
           >
-            <div className="relative w-6/12 lg:w-5/12 md:w-5/12 my-6 mx-auto max-w-3xl">
+            <div className="relative w-9/12 lg:w-5/12 md:w-5/12 my-6 mx-auto max-w-3xl">
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
@@ -665,9 +665,9 @@ const handleReset = (e) => {
       {showForgotPassword ? (
         <>
           <div
-            className="justify-center -ml-44 md:ml-0 lg:ml-0 -mt-96 md:mt-0 lg:mt-0  items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-black bg-opacity-40"
+            className="justify-center -ml-10 md:ml-0 lg:ml-0 -mt-96 md:mt-0 lg:mt-0  items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-black bg-opacity-40"
           >
-            <div className="relative w-6/12 lg:w-5/12 md:w-8/12 my-6 mx-auto max-w-3xl">
+            <div className="relative w-8/12 lg:w-5/12 md:w-8/12 my-6 mx-auto max-w-3xl">
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
@@ -721,9 +721,9 @@ const handleReset = (e) => {
       {showforgotOTP? (
         <>
           <div
-            className="justify-center -ml-44 md:ml-0 lg:ml-0 -mt-96 md:mt-0 lg:mt-0 items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-black bg-opacity-40"
+            className="justify-center -ml-0 md:ml-0 lg:ml-0 -mt-96 md:mt-0 lg:mt-0 items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-black bg-opacity-40"
           >
-            <div className="relative w-6/12 lg:w-5/12 md:w-8/12 my-6 mx-auto max-w-3xl">
+            <div className="relative w-9/12 lg:w-5/12 md:w-8/12 my-6 mx-auto max-w-3xl">
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}

@@ -18,7 +18,7 @@ const FlutterWave = ({ handleSubmit, buttonName, enabled }) => {
 		public: "FLWPUBK_TEST-fd10e76ce98e0f66db8969a0aee569ec-X",
 	}
 	const config = {
-		public_key: test_key.public,
+		public_key: live_key.public,
 		tx_ref: Date.now(),
 		amount: localStorage.getItem("transaction_amount"),
 		phonenumber: localStorage.getItem("phoneNumber"),

@@ -92,14 +92,20 @@ function Airtime() {
 
 	const _handleEnable = () => {
 		if (
-			airtimeData.receiver_number === 11 &&
+			airtimeData.receiver_number.length === 11 &&
 			airtimeData.amount !== "" &&
 			network !== ""
 		) {
 			return true
 		}
 		return false
+
+		
 	}
+
+	console.log(airtimeData.receiver_number)
+	console.log(airtimeData.amount)
+	console.log(network)
 
 	return (
 		<div>
