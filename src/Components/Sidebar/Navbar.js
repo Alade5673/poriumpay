@@ -30,8 +30,10 @@ function Navbar() {
 							<p className="hidden md:block lg:block w-28 pl-3">{full_name}</p>
 						</div>
 						<div className="flex items-baseline justify-center">
+            <a href="https://www.poriumpay.com">
 							<img alt="" src={watermark} className=" w-12" />
 							<img alt="" src={name} className="w-8" />
+            </a>
 						</div>
 						<div className="">
 							<a href="https://www.poriumpay.com/contact-us/">
