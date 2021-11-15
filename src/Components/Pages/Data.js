@@ -106,8 +106,8 @@ function Data() {
 		<div>
 			<Navbar />
 			<div className="flex ml-8 md:ml-40 lg:ml-40 mt-8">
-				<div className="flex ml-5 md:ml-20 lg:ml-96">
-					<img alt="" src={data_icon} className="h-6 ml-10" />
+				<div className="flex items-center space-x-4 justify-center w-10/12">
+					<img alt="" src={data_icon} className="h-6" />
 					<p className="text-bodyText font-normal ml-3 text-l">Buy Data</p>
 				</div>
 			</div>
