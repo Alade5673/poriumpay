@@ -14,12 +14,18 @@ const logoMap = {
 	STARTIMES: startimesLogo,
 }
 
-export default function CableItem({ transactionHistory, message }) {
+export default function CableItem({
+	transactionHistory,
+	message,
+	isElectricity,
+}) {
 	return (
 		<div className="flex items-center justify-between lg:text-sm text-xs mb-4">
-			<div className="logo">
-				<img src={logoMap[transactionHistory.meta.network]} />
-			</div>
+			{!isElectricity && (
+				<div className="logo">
+					<img src={logoMap[transactionHistory.meta.network]} alt="" />
+				</div>
+			)}
 			<div className="amount">{"#" + transactionHistory.amount}</div>
 			<div className="description w-1/3">{transactionHistory.description}</div>
 			<div className="created lg:block hidden">
