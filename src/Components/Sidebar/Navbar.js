@@ -21,37 +21,32 @@ function Navbar() {
 	return (
 		<div className="w-full flex justify-center">
 			<IconContext.Provider value={{ color: "#143784" }}>
-				<div className="flex ">
-					<div className="navbar">
-						<Link to="#" className="menu-bars">
-							<FaIcons.FaBars onClick={showSidebar} className="z-10" />
-						</Link>
-						<p className="invisible md:invisible lg:visible w-28 pl-3">
-							{full_name}
-						</p>
-					</div>
-
-					<div className="flex bg-menuColor h-20 ml-6 -md:pl-10 lg:pl-8">
-						<div className="flex  items-baseline mt-3 md:mt-0 lg:md-0 ml-40 lg:ml-80 md:ml-20 lg:mt-4">
-							<img
-								alt=""
-								src={watermark}
-								className=" h-12 md:h-0 lg:h-16 w-16 md:w-12 lg:w-12 "
-							/>
-							<img alt="" src={name} className="h-4 w-8 md:w-12 lg:w-12" />
+				<div className="flex justify-center w-full items-center">
+					<div className="flex bg-menuColor h-20 justify-between lg:w-7/12 w-full items-center px-4">
+						<div className="flex items-center">
+							<Link to="#" className="">
+								<FaIcons.FaBars onClick={showSidebar} className="w-10 h-10" />
+							</Link>
+							<p className="hidden md:block lg:block w-28 pl-3">{full_name}</p>
 						</div>
-						<a href="https://www.poriumpay.com/contact-us/">
-							<img
-								alt=""
-								src={phone}
-								className="visible md:invisible lg:invisible h-4 mt-8  ml-32 md:ml-0 lg:ml-0"
-							/>
-						</a>
-						<a href="https://www.poriumpay.com/contact-us/">
-							<p className=" invisible md:visible lg:visible text-lg font-light mt-8 ml-10 lg:ml-60 md:ml-28 pr-0 md:pr-6 lg:pr-16">
-								Contact Us
-							</p>
-						</a>
+						<div className="flex items-baseline justify-center">
+							<img alt="" src={watermark} className=" w-12" />
+							<img alt="" src={name} className="w-8" />
+						</div>
+						<div className="">
+							<a href="https://www.poriumpay.com/contact-us/">
+								<img
+									alt=""
+									src={phone}
+									className="block md:hidden lg:hidden h-4"
+								/>
+							</a>
+							<a href="https://www.poriumpay.com/contact-us/">
+								<p className=" hidden md:block lg:block text-lg font-light ">
+									Contact Us
+								</p>
+							</a>
+						</div>
 					</div>
 				</div>
 
