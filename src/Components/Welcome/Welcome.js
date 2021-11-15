@@ -19,6 +19,7 @@ import Navbar from "../Sidebar/Navbar"
 import axios from "axios"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import { Helmet } from "react-helmet"
 
 function Welcome() {
 	toast.configure()
@@ -366,6 +367,12 @@ function Welcome() {
 
 	return (
 		<div className="bg-white h-screen">
+			<Helmet>
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=NO"
+				/>
+			</Helmet>
 			<Navbar />
 			<div className="w-full  flex justify-center  items-center">
 				<div className="flex bg-cardColor shadow-sm pt-32 flex-col w-10/12 md:w-10/12 lg:w-7/12 justify-center items-center  space-y-8">

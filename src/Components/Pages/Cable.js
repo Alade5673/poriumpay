@@ -11,6 +11,7 @@ import startimes from "../../assests/starttimes.png"
 import CustomSelect from "../select"
 import FlutterWave from "../flutterwave"
 import { bills } from "../../bills"
+import { Helmet } from "react-helmet"
 
 function Cable() {
 	const [cableTv, setCableTv] = React.useState("")
@@ -93,6 +94,12 @@ function Cable() {
 	}
 	return (
 		<div>
+			<Helmet>
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=NO"
+				/>
+			</Helmet>
 			<Navbar />
 
 			<div className="flex ml-8 md:ml-40 lg:ml-40 mt-8">

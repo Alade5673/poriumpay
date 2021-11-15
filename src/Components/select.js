@@ -38,7 +38,7 @@ const CustomSelect = ({ options, onChange, value }) => {
 			{open && (
 				<div
 					onMouseLeave={() => setOpen(false)}
-					className="pl-2 py-4 pr-4 absolute bg-white ml-3 w-1/3 shadow-sm h-52 overflow-y-auto"
+					className="pl-2 py-4 pr-4 absolute bg-white ml-3 lg:w-1/3 w-8/12 shadow-sm max-h-52 overflow-y-auto"
 				>
 					{options?.map((value, index) => (
 						<div

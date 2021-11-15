@@ -81,7 +81,7 @@ function Airtime() {
 		},
 		{
 			img: etisalat,
-			name: "Etisalat Airtime VTUel",
+			name: "9MOBILE Airtime VTUel",
 			biller: "AIRTIME",
 		},
 	]

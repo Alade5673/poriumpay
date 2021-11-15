@@ -83,7 +83,7 @@ function Data() {
 		},
 		{
 			img: etisalat,
-			name: "ETISALAT",
+			name: "9MOBILE",
 		},
 	]
 
