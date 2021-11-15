@@ -5,6 +5,8 @@
     /* margin-left: 4px; */
     justify-content: start;
     align-items: center;
+    position:absolute;
+    z-index: 10;
   }
   
   .menu-bars {
@@ -76,3 +78,18 @@
   span {
     margin-left: 16px;
   }
+
+  @media screen and (max-width:450px){
+    .navbar {
+      background-color: #FFFCF0;
+      width: 20px;
+      height: 80px;
+      display: flex;
+      /* margin-left: 4px; */
+      justify-content: start;
+      align-items: center;
+      position:absolute;
+      z-index: 10;
+    }
+
+}

@@ -25,6 +25,7 @@ import "../../styles/tab.css";
 import axios from "axios";
 import AirtimeItem from "../Pages/AirtimeItem";
 import CableItem from "./CableItem";
+// import "../../body.css"
 
 function Homepage() {
 
@@ -109,12 +110,12 @@ function Homepage() {
  return (
     <div>
      <Navbar/>
-    <div className="w-full h-screen flex justify-center md:justify-center lg:mt-32 mt-10 md:mt-32">
-        <div className="flex bg-cardColor shadow-sm flex-col  h-full w-10/12  space-y-8">
+    <div className="w-10/12 h-screen flex justify-center md:justify-center lg:pt-28 pt-10 md:pt-32">
+        <div className="flex flex-col  h-full w-10/12  space-y-8">
            
             <div className="flex">
                     {/* airtime */}
-                    <div className=" ml-7 lg:ml-52 md:ml-4">
+                    <div className=" ml-16 lg:ml-52 md:ml-4">
                         <button className="w-16 md:w-24 lg:w-24 bg-airtimeColor md:text-sm text-xs text-white rounded-2xl h-12 " 
                         onClick={() => history.push('/airtime')}
                         >
@@ -155,112 +156,102 @@ function Homepage() {
             </div>
 
 
-            {/* <div className="md:flex lg:flex ml-16 lg:ml-96 md:ml-32">
-                <img alt="" src={lock} className="md:w-8 lg:w-8 ml-36 md:ml-12 lg:ml-8"/>
+            <div className=" ml-16 lg:ml-96 md:ml-32 pt-12">
+                <img alt="" src={lock} className="md:w-8 lg:w-8 ml-36 md:ml-12 lg:ml-32"/>
                 <p className=" text-xs md:text-sm lg:text-sm font-normal mt-2 ml-16 md:ml-3 lg:ml-7 "> Securely Add Your Debit card details </p>
-            </div> */}
+            </div>
 
             {/* button */}
                 {/* <button className="w-10/12 lg:w-5/12 bg-transparent border-2 font-light border-blue-900 md:text-sm text-xs text-black rounded-2xl h-16 md:h-12 lg:h-10 ml-8 lg:ml-80 md:ml-12" >
                     Add card details
                 </button> */}
 
-                <div className="bg-brandBlue w-11/12 md:w-11/12 lg:w-7/12 ml-4 md:ml-6 lg:ml-52 rounded-t-xl h-8 flex ">
-                    <img alt="" src={hist} className="h-5 ml-28 md:ml-40 lg:ml-64 mt-1"/>
+                <div className="bg-brandBlue w-11/12 md:w-11/12 lg:w-7/12 ml-12 md:ml-6 lg:ml-64 rounded-t-xl h-8 flex ">
+                    <img alt="" src={hist} className="h-5 ml-28 md:ml-40 lg:ml-52 mt-1"/>
                     <p className="text-sm font-light ml-6 md:ml-0 lg:ml-7 mt-1 text-white"> History </p>
                 </div>
 
-                {/* <div className="flex invisible md:visible lg:visible md:ml-10 lg:ml-60">
-                    <p className="text-sm font-normal mt-1 text-gray-400"> Airtime </p>
-                    <p className="text-sm font-normal ml-20  mt-1 text-gray-400"> Data </p>
-                    <p className="text-sm font-normal ml-20  mt-1 text-gray-400"> Cable </p>
-                    <p className="text-sm font-normal ml-20 mt-1 text-gray-400"> Electricity </p>
-                    <p className="text-sm font-normal ml-20  mt-1 text-gray-400"> View all </p>
-                </div> */}
+                <div className="container md:pl-28 lg:pl-36">
+                    <div className="bloc-tabs invisible md:visible lg:visible">
+                        <button
+                            className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
+                            onClick={() => toggleTab(1)}
+                        >
+                            Airtime
+                        </button>
+                        <button
+                            className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
+                            onClick={() => toggleTab(2)}
+                        >
+                            Data
+                        </button>
+                        <button
+                            className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
+                            onClick={() => toggleTab(3)}
+                        >
+                            Cable
+                        </button>
+                        <button
+                            className={toggleState === 4 ? "tabs active-tabs" : "tabs"}
+                            onClick={() => toggleTab(4)}
+                        >
+                            Electricity
+                        </button>
+                        <button
+                            className={toggleState === 0 ? "tabs active-tabs" : "tabs"}
+                            onClick={() => toggleTab(0)}
+                        >
+                            View All
+                        </button>
+                    </div>
 
+                    <div className="content-tabs -mt-2 md:mt-0 lg:mt-0">
+                        <div
+                            className={toggleState === 1 ? "content  active-content" : "content"}
+                        >
+                        <p>
+                            {populateAll()}
+                        </p>
+                        </div>
 
-<div className="container">
-      <div className="bloc-tabs ">
-        <button
-          className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
-          onClick={() => toggleTab(1)}
-        >
-          Airtime
-        </button>
-        <button
-          className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
-          onClick={() => toggleTab(2)}
-        >
-          Data
-        </button>
-        <button
-          className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
-          onClick={() => toggleTab(3)}
-        >
-          Cable
-        </button>
-        <button
-          className={toggleState === 4 ? "tabs active-tabs" : "tabs"}
-          onClick={() => toggleTab(4)}
-        >
-          Electricity
-        </button>
-        <button
-          className={toggleState === 0 ? "tabs active-tabs" : "tabs"}
-          onClick={() => toggleTab(0)}
-        >
-          View All
-        </button>
-      </div>
+                        <div
+                            className={toggleState === 2 ? "content  active-content" : "content"}
+                        >
+                        <p>
+                            {populateAll()}
+                        </p>
+                        </div>
 
-      <div className="content-tabs">
-        <div
-          className={toggleState === 1 ? "content  active-content" : "content"}
-        >
-          <p>
-            {populateAll()}
-          </p>
-        </div>
+                        <div
+                            className={toggleState === 3 ? "content  active-content" : "content"}
+                        >
+                        <p>
+                            {populateCable}
+                        </p>
+                        </div>
 
-        <div
-          className={toggleState === 2 ? "content  active-content" : "content"}
-        >
-          <p>
-            {populateAll()}
-          </p>
-        </div>
+                        <div
+                            className={toggleState === 4 ? "content  active-content" : "content"}
+                        >
+                        <p>
+                            {populateAll}
+                        </p>
+                        </div>
 
-        <div
-          className={toggleState === 3 ? "content  active-content" : "content"}
-        >
-          <p>
-            {populateCable}
-          </p>
-        </div>
+                        <div
+                            className={toggleState === 0 ? "content  active-content" : "content"}
+                        >
+                        <p>
+                        {populateAll()}
+                        </p>
+                        </div>
+                    </div>
+                </div>
 
-        <div
-          className={toggleState === 4 ? "content  active-content" : "content"}
-        >
-          <p>
-            {populateAll}
-          </p>
-        </div>
-
-        <div
-          className={toggleState === 0 ? "content  active-content" : "content"}
-        >
-          <p>
-          {populateAll()}
-          </p>
-        </div>
-      </div>
-    </div>
-
-
-                <div className="flex justify-center items-center flex-col ">
+                <div className="flex items-center flex-col ">
                     {/* <img alt="" src={historyGray} className="h-10 -mt-8 md:mt-40 lg:mt-0"/>
                     <p className="visible md:invisible lg:invisible text-sm font-normal mt-1 text-gray-400"> No transaction yet </p> */}
-                   <p className="text-sm font-normal  mt-4 text-black pt-8 md:pt-36 lg:pt-0"> Copyright PoriumPay 2021 </p>
+                   <p className="text-sm font-normal ml-40 mt-20 text-black "> Copyright PoriumPay 2021 </p>
                 </div>
             
         </div>

@@ -12,16 +12,22 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 650px;
+    width: 800px;
     /* height: 500px; */
     /* background: #f1f1f1; */
     margin: 100px auto 0;
     word-break: break-all;
     /* border: 1px solid rgba(0, 0, 0, 0.274); */
   }
+
+  .scroll{
+    height: 100%; 
+    overflow: hidden; 
+  }
   
   .bloc-tabs {
     display: flex;
+    /* margin-left: 140px; */
   }
   .tabs {
   
@@ -64,6 +70,7 @@
   }
   .content-tabs {
     flex-grow : 1;
+    /* margin-left: 110px; */
   }
   .content {
     background: white;
@@ -91,6 +98,7 @@
 
   .transactionContainer{
     display: flex;
+    /* opacity: 0.5; */
   }
 
   .transactionContainer .logo{
@@ -153,6 +161,13 @@
         font-size: 13px;
         width: 15px;
         
+    }
+    .content{
+      background: none;
+      /* padding: 20px;
+      width: 100%;
+      height: 100%;
+      display: none; */
     }
 }
 
