@@ -33,7 +33,7 @@ export default function AirtimeItem({ transactionHistory, message }) {
 					className="w-8"
 				/>
 			</div>
-			<div className="amount">{"#" + transactionHistory.amount}</div>
+			<div className="amount">{"N" + transactionHistory.amount}</div>
 			<div className="description w-1/3">{transactionHistory.description}</div>
 			<div className="created lg:block hidden">
 				{moment(transactionHistory.createdAt).format("DD-MM-YY hh:mm")}

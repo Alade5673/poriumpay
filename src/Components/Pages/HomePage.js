@@ -68,13 +68,13 @@ function Homepage() {
 	}
 
 	const populateAll = () => {
-		return transactionHistory.map((item) => (
+		return transactionHistory.sort((a,b)=>new Date(b.createdAt)- new Date(a.createdAt)).map((item) => (
 			<AirtimeItem transactionHistory={item} message={message} />
 		))
 	}
 
 	const populateCable = () => {
-		return transactionHistory.map((item) => (
+		return transactionHistory.sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt)).map((item) => (
 			<CableItem transactionHistory={item} message={message} />
 		))
 	}
